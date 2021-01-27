@@ -1,2 +1,4 @@
-제발 되라
-으어아아아아아
+# test file
+# ssh 공개키로 clone remote 완료
+# git clone, git remote add <name> <url>, git add, git commit -m "-", git push
+# https://recoveryman.tistory.com/283
