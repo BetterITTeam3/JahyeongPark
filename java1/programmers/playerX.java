@@ -1,24 +1,27 @@
 import java.util.Arrays;
 
-//class Solution {
-//    public String solution(String[] participant, String[] completion) {
-//        String answer = "";
-//        int j = 1; //for case 1
-//        Arrays.sort(participant); Arrays.sort(completion);
-//        for(int i = 0; i < completion.length; i++) {
-//        	if(participant[i] != completion[i]) { //for case 2
-//        		answer = participant[i];
-//        		j = -1;
-//        		break;
-//        	}
-//        }
-//        if(j == 1) {
-//    	answer = participant[ participant.length - 1 ];
-//        }
-//        
-//        return answer;
-//    }
-//}
+class Solution {
+    public String solution(String[] participant, String[] completion) {
+        String answer = "";	// 리턴할 변수 정의 
+        int temp = 0;	// 카운트 변수 정의 
+        Arrays.sort(participant); Arrays.sort(completion);	// 알파벳 순으로 배열 정렬 
+        
+        for(int i = 0; i < completion.length; i++) {	// 완주자 수 만큼 반복 
+        	if(participant[i] == completion[i]) {
+        		temp += 1;	// 완주하지 못한 선수의 이름이 정렬된 participant 배열의 가장 마지막에 나올 경우를 대비 
+        	} else {
+        		answer = participant[i];	// 정렬된 두 배열을 비교하였을 때, 불일치 시 그 순간 정렬된 participant 배열에 존재하는 선수가 정답 
+        		break;	// 정답이 도출 되었으니 반복문 탈출 
+        	}
+        }
+        
+        if(temp == completion.length) { // 아직 answer 문자열은 비어있음 
+    	answer = participant[ completion.length ];
+        }
+        
+        return answer;
+    }
+}
 
 public class playerX {
 
